@@ -1,4 +1,15 @@
-<h1>Product detail for <em><%= @product.name() %>: <%= sprintf("%.2f", @product.price) %></em></h1>
+<h1>Product detail for <em><%= @product.name() %>: $<%= sprintf("%.2f", @product.price) %></em></h1>
+
+<form action="/product/<%= @product.id() %>/name" method="post">
+  <input name="_method" type="hidden" value="patch">
+
+  <div class = "form-group">
+    <label for="name">Reset the Name:</label>
+    <input id="name" name="name" class="form-control" type="text">
+  </div>
+  <button type="submit" class="btn">Update Name</button>
+
+</form><br />
 
 <form action="/product/<%= @product.id() %>/price" method="post">
   <input name="_method" type="hidden" value="patch">
