@@ -16,6 +16,11 @@ get("/cashier") do
   erb(:cashier)
 end
 
+delete("/purchase_delete/:id") do
+  Purchase.find(params.fetch("id").to_i()).destroy()
+  erb(:index)
+end
+
 patch("/purchase") do
   purchase_id = params.fetch("purchase_id").to_i()
   product_ids = params.fetch("product_ids")

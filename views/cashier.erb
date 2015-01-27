@@ -14,3 +14,11 @@
 
   <button type="submit" class="btn">Submit Purchase</button>
 </form>
+
+<br />
+
+<form  action="purchase_delete/<%= @purchase.id() %>" method="post">
+  <input name="_method" type= "hidden" value="delete">
+  <button type="submit" class="btn btn-danger">Cancel Purchase</button>
+
+</form>
