@@ -17,3 +17,16 @@ post("/products") do
   @products = Product.all()
   erb(:index)
 end
+
+get("/product/:id") do
+  @product = Product.find(params.fetch("id").to_i())
+
+  erb(:product)
+end
+
+patch("/product/:id/price") do
+  price = params.fetch("price").to_f()
+  @product = Product.find(params.fetch('id').to_i())
+  @product.update(price: price)
+  erb(:product)
+end

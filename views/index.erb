@@ -5,7 +5,7 @@
 <% if @products.any?() %>
   <% @products.each() do |product| %>
     <ul>
-      <li><%= product.name() %>: $<%= sprintf("%.2f", product.price()) %></li>
+      <li><a href="/product/<%= product.id() %>"><%= product.name() %>: $<%= sprintf("%.2f", product.price()) %></a></li>
     </ul>
   <% end %>
 <% else %>
