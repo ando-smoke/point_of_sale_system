@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: point_of_sale_dev
+  template: template0
+
+test:
+  adapter: postgresql
+  database: point_of_sale_test
+  template: template0
