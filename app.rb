@@ -11,12 +11,22 @@ get("/") do
 end
 
 get("/cashier") do
+  @purchase = Purchase.create()
   @products = Product.all()
   erb(:cashier)
 end
 
-post("/purchase") do
+patch("/purchase") do
+  purchase_id = params.fetch("purchase_id").to_i()
+  product_ids = params.fetch("product_ids")
 
+  product_ids.each() do |id|
+    Product.find(id.to_i()).update(:purchase_id => purchase_id)
+  end
+
+  @purchase_products = Purchase.find(purchase_id).products()
+
+  erb(:purchase)
 end
 
 get("/manager") do

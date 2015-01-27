@@ -1,0 +1,7 @@
+<h1>A List Of Your Purchases</h1>
+
+<ul>
+<% @purchase_products.each() do |product|%>
+  <li><%= product.name() %></li>
+<% end %>
+</ul>
