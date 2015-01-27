@@ -1,28 +1,7 @@
-<h1>Point-of-Sale System</h1>
+<div class="jumbotron masthead">
+  <h1>Welcome to The POS System for Hank's Market</h1>
 
-<p>Current list of products:</p>
-
-<% if @products.any?() %>
-  <% @products.each() do |product| %>
-    <ul>
-      <li><a href="/product/<%= product.id() %>"><%= product.name() %>: $<%= sprintf("%.2f", product.price()) %></a></li>
-    </ul>
-  <% end %>
-<% else %>
-  <p><em>The product list is empty!</em></p>
-<% end %><br />
-
-<p>Enter a new product:</p>
-
-<form action="/products" method="post">
-  <div class="form-group">
-    <label for="product_name">Name: </label>
-    <input id="product_name" name="product_name" type="text" class="form-control"/>
-  </div>
-  <div class="form-group">
-    <label for="product_price">Price: </label>
-    <input id="product_price" name="product_price" type="text" class="form-control"/>
-  </div>
-
-  <button type="submit" class="btn">Add product</button>
-</form>
+  <h3>Are You A</h3>
+  <a href="/manager" class ="btn btn-primary btn-large">Manager</a>
+  <a href="/cashier" class ="btn btn-primary btn-large">Cashier</a>
+</div>

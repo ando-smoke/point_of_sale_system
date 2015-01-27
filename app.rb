@@ -3,11 +3,20 @@ require("sinatra/reloader")
 also_reload("lib/**/*.rb")
 require("sinatra/activerecord")
 require("./lib/product")
+require("./lib/purchase")
 require("pg")
 
 get("/") do
-  @products = Product.all()
   erb(:index)
+end
+
+get("/cashier") do
+  erb(:cashier)
+end
+
+get("/manager") do
+  @products = Product.all()
+  erb(:manager)
 end
 
 post("/products") do
@@ -15,7 +24,7 @@ post("/products") do
   price = params.fetch("product_price").to_f()
   Product.create({:name => name, :price => price})
   @products = Product.all()
-  erb(:index)
+  erb(:manager)
 end
 
 get("/product/:id") do
@@ -42,5 +51,5 @@ delete("/product/:id/delete") do
   @product = Product.find(params.fetch("id").to_i())
   @product.destroy()
   @products = Product.all()
-  erb(:index)
+  erb(:manager)
 end
