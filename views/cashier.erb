@@ -1,0 +1,13 @@
+<h1>Checkout!!</h1>
+
+<form action="/purchase" method="post">
+  <h3>Select products for purchase:</h3><br />
+
+  <% @products.each() do |product| %>
+    <input type="checkbox" name="products" value="<%= product.id() %>" />
+      <%= product.name() %>: $<%= sprintf("%.2f", product.price) %>
+    <br />
+  <% end %><br />
+
+  <button type="submit" class="btn">Submit Purchase</button>
+</form>

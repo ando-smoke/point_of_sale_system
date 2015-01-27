@@ -11,7 +11,12 @@ get("/") do
 end
 
 get("/cashier") do
+  @products = Product.all()
   erb(:cashier)
+end
+
+post("/purchase") do
+
 end
 
 get("/manager") do
