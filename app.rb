@@ -37,3 +37,10 @@ patch("/product/:id/price") do
   @product.update(price: price)
   erb(:product)
 end
+
+delete("/product/:id/delete") do
+  @product = Product.find(params.fetch("id").to_i())
+  @product.destroy()
+  @products = Product.all()
+  erb(:index)
+end
