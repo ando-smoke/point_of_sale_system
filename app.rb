@@ -24,8 +24,9 @@ patch("/purchase") do
     Product.find(id.to_i()).update(:purchase_id => purchase_id)
   end
 
-  @purchase_products = Purchase.find(purchase_id).products()
-
+  purchase = Purchase.find(purchase_id)
+  @purchase_products = purchase.products()
+  @total_cost = purchase.total_cost()
   erb(:purchase)
 end
 
