@@ -17,4 +17,16 @@ describe(Purchase) do
     end
   end
 
+  describe(".between") do
+    it("returns all purchases between a given start and end date") do
+      test_purchase_1 = Purchase.create({ :purchase_date => "2015-01-25" })
+      test_purchase_2 = Purchase.create({ :purchase_date => "2015-01-23" })
+      test_purchase_3 = Purchase.create({ :purchase_date => "2014-12-31" })
+      in_range_purchases = [test_purchase_1, test_purchase_2]
+      start_date = "2015-01-01"
+      end_date = "2015-01-25"
+      expect(Purchase.between(start_date, end_date)).to(eq(in_range_purchases))
+    end
+  end
+
 end
