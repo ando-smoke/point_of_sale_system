@@ -1,7 +1,9 @@
 Point-of-Sale System
 ======================
 
-
+Manages a point-of-sale (POS) system for a given store. This POS stores
+products in a given store inventory, and allows for cashiers to create
+purchase orders.
 
 Installation
 ------------
