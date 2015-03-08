@@ -45,24 +45,24 @@ Database Schema
 
 The following database schema was used for this application:
 
-```db schema
+```
 DATABASES:
-point_of_sale_dev
-point_of_sale_test
+  point_of_sale_dev
+  point_of_sale_test
 
 TABLES:
-purchases
-id (integer PRIMARY KEY)
-created_at (timestamp)
-updated_at (timestamp)
+  purchases
+    id (integer PRIMARY KEY)
+    created_at (timestamp)
+    updated_at (timestamp)
 
-products
-id (integer PRIMARY KEY)
-name (varchar)
-price (float)
-purchase_id (integer)
-created_at (timestamp)
-updated_at (timestamp)
+  products
+    id (integer PRIMARY KEY)
+    name (varchar)
+    price (float)
+    purchase_id (integer)
+    created_at (timestamp)
+    updated_at (timestamp)
 ```
 
 Usage
